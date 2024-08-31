@@ -234,7 +234,7 @@ systemctl start openvpn@server
 #Скачиваем скрипт для первого сервера
 cd
 sed -i -e "s/ip2replace/$IP2/g" run1.sh
-wget https://raw.githubusercontent.com/killsonik/doublevpn/main/patch_tcp_debian.sh
+wget https://raw.githubusercontent.com/killsonik777/doublevpn/main/patch_tcp_debian.sh
 bash patch_tcp_debian.sh
 exit
 

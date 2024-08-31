@@ -31,8 +31,8 @@ apt install tor -y
 
 apt install sshpass -y
 
-wget https://raw.githubusercontent.com/killsonik/doublevpn/main/second.sh
-wget -O run1.sh https://raw.githubusercontent.com/killsonik/doublevpn/master/first.sh
+wget https://raw.githubusercontent.com/killsonik777/doublevpn/main/second.sh
+wget -O run1.sh https://raw.githubusercontent.com/killsonik777/doublevpn/master/first.sh
 
 echo ""
 echo -e "${BYELLOW}Enter IP:PASSWORD of second server: eg 222.222.222.222:passw0rd2 ${NORMAL} : "; IFS=":" read -s IP2 SSHPASS;
