@@ -215,7 +215,7 @@ cd $easyrsalocation
 openvpn --genkey --secret pki/tls.key
 
 #Сертификаты для openvpn готовы. Теперь нам необходимо создать папку /etc/openvpn/keys/, в нее мы поместим серверные сертификаты:
-mkdir /etc/openvpn/keys
+mkdir -p /etc/openvpn/keys
 cp -R pki/ca.crt /etc/openvpn/keys/
 cp -R pki/dh.pem /etc/openvpn/keys/
 cp -R pki/tls.key /etc/openvpn/keys/
@@ -300,7 +300,7 @@ CRT_DIR=/usr/share/easy-rsa/pki/issued
 
 OUTPUT_DIR=/root/configs
 
-mkdir /root/configs
+mkdir -p /root/configs
 
 cat ${BASE_CONFIG} \
       <(echo -e '<ca>') \
