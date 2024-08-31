@@ -4,8 +4,6 @@ apt update
 
 apt install tmux -y
 
-wget https://raw.githubusercontent.com/killsonik777/doublevpn/main/start.sh
-
 chmod +x start.sh
 
 tmux kill-server
