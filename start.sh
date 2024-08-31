@@ -38,8 +38,8 @@ ssh-keyscan $IP2 >> ~/.ssh/known_hosts
 
 export SSHPASS
 
-sshpass -e torsocks scp /root/doublevpn/run1.sh root@$IP2:
-rm /root/doublevpn/run1.sh
+sshpass -e torsocks scp /root/run1.sh root@$IP2:
+rm /root/run1.sh
 #sshpass -e torsocks scp /root/second.sh root@$IP2:
 #rm /root/second.sh
 #sshpass -e torsocks ssh -o PasswordAuthentication=yes root@$IP2 "chmod +x second.sh; bash -s second.sh"
@@ -49,6 +49,6 @@ sshpass -e torsocks ssh -o PasswordAuthentication=yes root@$IP2 'bash -s' < ~/./
 
 #torsocks ssh root@$IP2
 
-sshpass -e torsocks scp -T root@$IP2:"/root/doublevpn/client.tar /root/doublevpn/run1.sh" /root/
+sshpass -e torsocks scp -T root@$IP2:"/root/client.tar /root/run1.sh" /root/
 
-bash /root/doublevpn/run1.sh
+bash /root/run1.sh

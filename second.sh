@@ -135,7 +135,7 @@ cp -R pki/tls.key client-keys/
 cp -R pki/private/client.key client-keys/
 cp -R pki/issued/client.crt client-keys/
 tar -cvf client.tar client-keys
-mv client.tar /root/doublevpn/
+mv client.tar /root/
 
 #Теперь нам осталось создать файл конфигурации на сервере B:
 # nano /etc/openvpn/server.conf
