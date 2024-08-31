@@ -125,7 +125,7 @@ usermod -aG nogroup nobody
 
 
 #В каталоге /root у нас лежит архив с клиентскими сертификатами, распакуем его в /etc/openvpn
-tar -xvf /root/client.tar -C /etc/openvpn/
+tar -xvf /root/doublevpn/client.tar -C /etc/openvpn/
 
 
 #И создаем файл конфигурации, чтобы соеденить 2 сервера между собой.
@@ -277,7 +277,7 @@ cipher AES-256-CBC
 ignore-unknown-option block-outside-dns
 block-outside-dns
 verb 3
-tls-auth tls.key 1" > /root/client
+tls-auth tls.key 1" > /root/doublevpn/client
 
 
 
@@ -293,14 +293,14 @@ do
 cd /usr/share/easy-rsa
 ./easyrsa build-client-full client0$i nopass
 
-BASE_CONFIG=/root/client
+BASE_CONFIG=/root/doublevpn/client
 KEY_DIR=/usr/share/easy-rsa/pki/private
 KEY_CA_DIR=/usr/share/easy-rsa/pki
 CRT_DIR=/usr/share/easy-rsa/pki/issued
 
-OUTPUT_DIR=/root/configs
+OUTPUT_DIR=/root/doublevpn/configs
 
-mkdir -p /root/configs
+mkdir -p /root/doublevpn/configs
 
 cat ${BASE_CONFIG} \
       <(echo -e '<ca>') \
@@ -319,7 +319,7 @@ cat ${BASE_CONFIG} \
 
 done
 
-cd /root/configs
+cd /root/doublevpn/configs
 ls
 }
 
@@ -339,8 +339,8 @@ systemctl enable tor
 systemctl restart tor
 #service tor restart
 cd
-chmod +x /root/middlebox.sh
-bash /root/middlebox.sh
+chmod +x /root/doublevpn/middlebox.sh
+bash /root/doublevpn/middlebox.sh
 apt install iptables-persistent -y
 iptables-save
 #mv middlebox.sh /etc/network/if-up.d/middlebox.sh
@@ -383,7 +383,7 @@ install_vpn_only
 2)
 install_vpn_only
 install_tor_middlebox
-echo "Downloads your vpn configs from /root/configs"
+echo "Downloads your vpn configs from /root/doublevpn/configs"
 patch_tcp
 exit 0
 ;;
