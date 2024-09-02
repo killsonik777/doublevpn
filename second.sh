@@ -13,6 +13,7 @@ echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selecti
 apt update -y && apt upgrade -y
 
 apt install secure-delete -y
+apt install iptables -y
 
 journalctl --verify 
 
